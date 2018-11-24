@@ -1,5 +1,6 @@
 package edu.gatech.ecotourism.adapters;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -7,37 +8,40 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import edu.gatech.ecotourism.Listing;
+import edu.gatech.ecotourism.fragments.ListingsFragment.OnListFragmentInteractionListener;
 import edu.gatech.ecotourism.R;
-import edu.gatech.ecotourism.fragments.TipsFragment.OnListFragmentInteractionListener;
 
 import java.util.List;
 
 /**
- * {@link RecyclerView.Adapter} that can display a {@link String} and makes a call to the
+ * {@link RecyclerView.Adapter} that can display a {@link Listing} and makes a call to the
  * specified {@link OnListFragmentInteractionListener}.
  * TODO: Replace the implementation with code for your data type.
  */
-public class MyTipsRecyclerViewAdapter extends RecyclerView.Adapter<MyTipsRecyclerViewAdapter.ViewHolder> {
+public class ListingsRecyclerViewAdapter extends RecyclerView.Adapter<ListingsRecyclerViewAdapter.ViewHolder> {
 
-    private final List<String> mValues;
+    private final List<Listing> mValues;
     private final OnListFragmentInteractionListener mListener;
 
-    public MyTipsRecyclerViewAdapter(List<String> items, OnListFragmentInteractionListener listener) {
+    public ListingsRecyclerViewAdapter(List<Listing> items, OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
 
+    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_tips, parent, false);
+                .inflate(R.layout.fragment_listings, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position));
+        holder.mIdView.setText(mValues.get(position).getTitle());
+        holder.mContentView.setText(mValues.get(position).getDescription());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,7 +49,7 @@ public class MyTipsRecyclerViewAdapter extends RecyclerView.Adapter<MyTipsRecycl
                 if (null != mListener) {
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
-                    mListener.onTipsListFragmentInteraction(holder.mItem);
+                    mListener.onListFragmentInteraction(holder.mItem);
                 }
             }
         });
@@ -57,21 +61,22 @@ public class MyTipsRecyclerViewAdapter extends RecyclerView.Adapter<MyTipsRecycl
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public final View mView;
-        public final TextView mIdView;
-        public final TextView mContentView;
-        public String mItem;
+        final View mView;
+        final TextView mIdView;
+        final TextView mContentView;
+        Listing mItem;
 
-        public ViewHolder(View view) {
+        ViewHolder(View view) {
             super(view);
             mView = view;
             mIdView = view.findViewById(R.id.item_number);
             mContentView = view.findViewById(R.id.content);
         }
 
+        @NonNull
         @Override
         public String toString() {
-            return super.toString() + " '" + mIdView.getText() + "'";
+            return super.toString() + " '" + mContentView.getText() + "'";
         }
     }
 }

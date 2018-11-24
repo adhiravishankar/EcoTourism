@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import edu.gatech.ecotourism.Contact;
 import edu.gatech.ecotourism.R;
-import edu.gatech.ecotourism.adapters.MyContactsRecyclerViewAdapter;
+import edu.gatech.ecotourism.adapters.ContactsRecyclerViewAdapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -59,7 +59,7 @@ public class ContactsFragment extends Fragment {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            recyclerView.setAdapter(new MyContactsRecyclerViewAdapter(contactList, mListener));
+            recyclerView.setAdapter(new ContactsRecyclerViewAdapter(contactList, mListener));
         }
         return view;
     }

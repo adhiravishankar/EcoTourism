@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import edu.gatech.ecotourism.R;
-import edu.gatech.ecotourism.adapters.MyTipsRecyclerViewAdapter;
+import edu.gatech.ecotourism.adapters.TipsRecyclerViewAdapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -55,7 +55,7 @@ public class TipsFragment extends Fragment {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            recyclerView.setAdapter(new MyTipsRecyclerViewAdapter(tipCategories, mListener));
+            recyclerView.setAdapter(new TipsRecyclerViewAdapter(tipCategories, mListener));
         }
         return view;
     }
