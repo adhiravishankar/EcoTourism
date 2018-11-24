@@ -1,4 +1,4 @@
-package edu.gatech.ecotourism;
+package edu.gatech.ecotourism.adapters;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -7,7 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import edu.gatech.ecotourism.TipsFragment.OnListFragmentInteractionListener;
+import edu.gatech.ecotourism.R;
+import edu.gatech.ecotourism.fragments.TipsFragment.OnListFragmentInteractionListener;
 
 import java.util.List;
 

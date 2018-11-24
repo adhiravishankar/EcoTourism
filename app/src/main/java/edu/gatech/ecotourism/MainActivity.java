@@ -16,6 +16,10 @@ import com.mooveit.library.Fakeit;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import edu.gatech.ecotourism.fragments.ContactsFragment;
+import edu.gatech.ecotourism.fragments.ListingsFragment;
+import edu.gatech.ecotourism.fragments.ShareMediaFragment;
+import edu.gatech.ecotourism.fragments.TipsFragment;
 
 public class MainActivity extends AppCompatActivity implements
         ListingsFragment.OnListFragmentInteractionListener,

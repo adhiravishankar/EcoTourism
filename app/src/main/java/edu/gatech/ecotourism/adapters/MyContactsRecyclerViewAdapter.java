@@ -1,4 +1,4 @@
-package edu.gatech.ecotourism;
+package edu.gatech.ecotourism.adapters;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -8,21 +8,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import edu.gatech.ecotourism.ListingsFragment.OnListFragmentInteractionListener;
+import de.hdodenhof.circleimageview.CircleImageView;
+import edu.gatech.ecotourism.Contact;
+import edu.gatech.ecotourism.fragments.ContactsFragment.OnListFragmentInteractionListener;
+import edu.gatech.ecotourism.R;
 
 import java.util.List;
 
 /**
- * {@link RecyclerView.Adapter} that can display a {@link Listing} and makes a call to the
+ * {@link RecyclerView.Adapter} that can display a {@link Contact} and makes a call to the
  * specified {@link OnListFragmentInteractionListener}.
- * TODO: Replace the implementation with code for your data type.
  */
-public class MyListingsRecyclerViewAdapter extends RecyclerView.Adapter<MyListingsRecyclerViewAdapter.ViewHolder> {
+public class MyContactsRecyclerViewAdapter extends RecyclerView.Adapter<MyContactsRecyclerViewAdapter.ViewHolder> {
 
-    private final List<Listing> mValues;
+    private final List<Contact> mValues;
     private final OnListFragmentInteractionListener mListener;
 
-    MyListingsRecyclerViewAdapter(List<Listing> items, OnListFragmentInteractionListener listener) {
+    MyContactsRecyclerViewAdapter(List<Contact> items, OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -31,15 +33,17 @@ public class MyListingsRecyclerViewAdapter extends RecyclerView.Adapter<MyListin
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_listings, parent, false);
+                .inflate(R.layout.fragment_contacts, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).getTitle());
-        holder.mContentView.setText(mValues.get(position).getDescription());
+        holder.mNameView.setText(mValues.get(position).getName());
+        holder.mEmailView.setText(mValues.get(position).getEmail());
+        holder.mPhoneView.setText(mValues.get(position).getPhone());
+        holder.mImageView.setImageResource(mValues.get(position).getPicture());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,21 +64,25 @@ public class MyListingsRecyclerViewAdapter extends RecyclerView.Adapter<MyListin
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         final View mView;
-        final TextView mIdView;
-        final TextView mContentView;
-        Listing mItem;
+        final TextView mNameView;
+        final TextView mEmailView;
+        final TextView mPhoneView;
+        final CircleImageView mImageView;
+        Contact mItem;
 
         ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = view.findViewById(R.id.item_number);
-            mContentView = view.findViewById(R.id.content);
+            mNameView = view.findViewById(R.id.tv_name);
+            mEmailView = view.findViewById(R.id.tv_email);
+            mPhoneView = view.findViewById(R.id.tv_phone);
+            mImageView = view.findViewById(R.id.iv_person);
         }
 
         @NonNull
         @Override
         public String toString() {
-            return super.toString() + " '" + mContentView.getText() + "'";
+            return super.toString() + " '" + mEmailView.getText() + "'";
         }
     }
 }
