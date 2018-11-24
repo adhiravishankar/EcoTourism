@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".ShareMediaFragment"
+    android:layout_margin="12dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:minHeight="200dp"
+        android:text="@string/choose_photo"
+        android:textAlignment="center" />
+    <View
+        android:layout_height="1dp"
+        android:id="@+id/divider1"
+        android:layout_width="match_parent"
+        android:background="@color/md_grey_400" />
+    <com.mikepenz.iconics.view.IconicsTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/instagram"
+        app:iiv_start_icon="faw-instagram"
+        app:iiv_start_color="@android:color/black"
+        app:iiv_start_size="16dp"
+        android:drawablePadding="16dp"
+        android:textSize="18sp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/facebook"
+        android:textSize="18sp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/whatsapp"
+        android:textSize="18sp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp" />
+</LinearLayout>
