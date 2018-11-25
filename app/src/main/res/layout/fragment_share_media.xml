@@ -10,12 +10,13 @@
     <TextView
         android:id="@+id/choose_photo"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:adjustViewBounds="true"
         android:minHeight="200dp"
         android:text="@string/choose_photo"
         android:textAlignment="center" />
     <View
+        android:layout_marginTop="12dp"
         android:layout_height="1dp"
         android:id="@+id/divider1"
         android:layout_width="match_parent"
@@ -28,14 +29,14 @@
         android:textSize="18sp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp" />
-    <com.mikepenz.iconics.view.IconicsCompoundButton
+    <androidx.appcompat.widget.AppCompatCheckBox
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/facebook"
         android:textSize="18sp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp" />
-    <androidx.appcompat.widget.AppCompatCheckedTextView
+    <androidx.appcompat.widget.AppCompatCheckBox
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/whatsapp"

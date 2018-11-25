@@ -19,12 +19,12 @@ import java.util.List;
  * {@link RecyclerView.Adapter} that can display a {@link Contact} and makes a call to the
  * specified {@link OnListFragmentInteractionListener}.
  */
-public class ContactsRecyclerViewAdapter extends RecyclerView.Adapter<ContactsRecyclerViewAdapter.ViewHolder> {
+public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHolder> {
 
     private final List<Contact> mValues;
     private final OnListFragmentInteractionListener mListener;
 
-    public ContactsRecyclerViewAdapter(List<Contact> items, OnListFragmentInteractionListener listener) {
+    public ContactsAdapter(List<Contact> items, OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }

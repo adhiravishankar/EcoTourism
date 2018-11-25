@@ -1,6 +1,11 @@
 package edu.gatech.ecotourism;
 
+import android.Manifest;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.mikepenz.materialdrawer.AccountHeader;
@@ -12,6 +17,11 @@ import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import com.mooveit.library.Fakeit;
+import com.nabinbhandari.android.permissions.PermissionHandler;
+import com.nabinbhandari.android.permissions.Permissions;
+import com.zhihu.matisse.Matisse;
+
+import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -27,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements
         ShareMediaFragment.OnFragmentInteractionListener,
         TipsFragment.OnListFragmentInteractionListener {
 
+    private static final int REQUEST_CODE_CHOOSE = 9001;
     Toolbar toolbar;
 
     @Override
@@ -72,6 +83,9 @@ public class MainActivity extends AppCompatActivity implements
                             case 1:
                                 clickContactsFragment();
                                 break;
+                            case 2:
+                                clickListingsFragment();
+                                break;
                             case 3:
                                 clickShareMediaFragment();
                                 break;
@@ -88,6 +102,12 @@ public class MainActivity extends AppCompatActivity implements
         clickContactsFragment();
     }
 
+    private void clickListingsFragment() {
+        Fragment f = new ListingsFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, f).commit();
+        toolbar.setTitle(R.string.listings);
+    }
+
     private void clickTipsFragment() {
         Fragment f = new TipsFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, f).commit();
@@ -101,9 +121,19 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     private void clickShareMediaFragment() {
-        Fragment f = new ShareMediaFragment();
-        getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, f).commit();
-        toolbar.setTitle(R.string.share_media);
+        String[] permissions = {Manifest.permission.READ_EXTERNAL_STORAGE};
+        String rationale = "Please provide storage permission so that you can get images to share.";
+        Permissions.Options options = new Permissions.Options().setRationaleDialogTitle("Info")
+                .setSettingsDialogTitle("Warning");
+
+        Permissions.check(this/*context*/, permissions, rationale, options, new PermissionHandler() {
+            @Override
+            public void onGranted() {
+                Fragment f = new ShareMediaFragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, f).commit();
+                toolbar.setTitle(R.string.share_media);
+            }
+        });
     }
 
     @Override
@@ -124,5 +154,14 @@ public class MainActivity extends AppCompatActivity implements
     @Override
     public void onTipsListFragmentInteraction(String item) {
 
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE_CHOOSE && resultCode == RESULT_OK) {
+            List<Uri> mSelected = Matisse.obtainResult(data);
+            Log.d("Matisse", mSelected.toString());
+        }
     }
 }

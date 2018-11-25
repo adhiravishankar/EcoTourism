@@ -5,7 +5,8 @@
     android:name="edu.gatech.ecotourism.ListingsFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
+    android:layout_margin="6dp"
+    android:layout_marginLeft="12dp"
+    android:layout_marginRight="12dp"
     tools:context=".fragments.ListingsFragment"
     tools:listitem="@layout/fragment_listings" />

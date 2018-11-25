@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import edu.gatech.ecotourism.Listing;
@@ -17,7 +18,6 @@ import java.util.List;
 /**
  * {@link RecyclerView.Adapter} that can display a {@link Listing} and makes a call to the
  * specified {@link OnListFragmentInteractionListener}.
- * TODO: Replace the implementation with code for your data type.
  */
 public class ListingsRecyclerViewAdapter extends RecyclerView.Adapter<ListingsRecyclerViewAdapter.ViewHolder> {
 
@@ -40,8 +40,9 @@ public class ListingsRecyclerViewAdapter extends RecyclerView.Adapter<ListingsRe
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
+        holder.imageView.setImageResource(mValues.get(position).getImage());
         holder.mIdView.setText(mValues.get(position).getTitle());
-        holder.mContentView.setText(mValues.get(position).getDescription());
+        holder.mTypeView.setText(mValues.get(position).getType());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,21 +63,23 @@ public class ListingsRecyclerViewAdapter extends RecyclerView.Adapter<ListingsRe
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         final View mView;
+        final ImageView imageView;
         final TextView mIdView;
-        final TextView mContentView;
+        final TextView mTypeView;
         Listing mItem;
 
         ViewHolder(View view) {
             super(view);
             mView = view;
+            imageView = view.findViewById(R.id.banner_slider1);
             mIdView = view.findViewById(R.id.item_number);
-            mContentView = view.findViewById(R.id.content);
+            mTypeView = view.findViewById(R.id.type);
         }
 
         @NonNull
         @Override
         public String toString() {
-            return super.toString() + " '" + mContentView.getText() + "'";
+            return super.toString() + " '" + mTypeView.getText() + "'";
         }
     }
 }
