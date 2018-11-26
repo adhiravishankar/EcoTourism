@@ -15,6 +15,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.leinardi.android.speeddial.SpeedDialActionItem;
+import com.leinardi.android.speeddial.SpeedDialView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,13 +51,17 @@ public class ListingsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_listings_list, container, false);
 
+        SpeedDialView speedDialView = view.findViewById(R.id.speedDial);
+        speedDialView.addActionItem(new SpeedDialActionItem.Builder(R.id.action_add_experience, R.drawable.ic_add_white_24dp).
+                setLabel(R.string.experience).create());
+        speedDialView.addActionItem(new SpeedDialActionItem.Builder(R.id.action_add_house, R.drawable.ic_add_white_24dp).
+                setLabel(R.string.house).create());
+
         // Set the adapter
-        if (view instanceof RecyclerView) {
-            Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
-            recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            recyclerView.setAdapter(new ListingsRecyclerViewAdapter(listings, mListener));
-        }
+        Context context = view.getContext();
+        RecyclerView recyclerView = view.findViewById(R.id.list);
+        recyclerView.setLayoutManager(new LinearLayoutManager(context));
+        recyclerView.setAdapter(new ListingsRecyclerViewAdapter(listings, mListener));
         return view;
     }
 

@@ -23,4 +23,6 @@
     <string name="whatsapp">Whatsapp</string>
     <string name="choose_photo">Choose a photo...</string>
     <string name="title_activity_launcher">LauncherActivity</string>
+    <string name="experience">Experience</string>
+    <string name="house">House</string>
 </resources>

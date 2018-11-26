@@ -1,12 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/list"
-    android:name="edu.gatech.ecotourism.ListingsFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/coordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="6dp"
-    android:layout_marginLeft="12dp"
-    android:layout_marginRight="12dp"
     tools:context=".fragments.ListingsFragment"
-    tools:listitem="@layout/fragment_listings" />
+    tools:listitem="@layout/fragment_listings">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list"
+        android:name="edu.gatech.ecotourism.ListingsFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="12dp" />
+    <com.leinardi.android.speeddial.SpeedDialOverlayLayout
+        android:id="@+id/overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:clickable_overlay="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+    <com.leinardi.android.speeddial.SpeedDialView
+        android:id="@+id/speedDial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="2dp"
+        app:layout_behavior="@string/speeddial_scrolling_view_snackbar_behavior"
+        app:sdExpansionMode="top"
+        app:sdMainFabAnimationRotateAngle="90"
+        app:sdMainFabClosedSrc="@drawable/ic_add_white_24dp"
+        app:sdMainFabOpenedSrc="@drawable/ic_close_white_24dp"
+        app:sdOverlayLayout="@id/overlay" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
