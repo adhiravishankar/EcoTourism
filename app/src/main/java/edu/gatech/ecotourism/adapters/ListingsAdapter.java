@@ -19,12 +19,12 @@ import java.util.List;
  * {@link RecyclerView.Adapter} that can display a {@link Listing} and makes a call to the
  * specified {@link OnListFragmentInteractionListener}.
  */
-public class ListingsRecyclerViewAdapter extends RecyclerView.Adapter<ListingsRecyclerViewAdapter.ViewHolder> {
+public class ListingsAdapter extends RecyclerView.Adapter<ListingsAdapter.ViewHolder> {
 
     private final List<Listing> mValues;
     private final OnListFragmentInteractionListener mListener;
 
-    public ListingsRecyclerViewAdapter(List<Listing> items, OnListFragmentInteractionListener listener) {
+    public ListingsAdapter(List<Listing> items, OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }

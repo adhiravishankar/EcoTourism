@@ -17,12 +17,12 @@ import java.util.List;
  * specified {@link OnListFragmentInteractionListener}.
  * TODO: Replace the implementation with code for your data type.
  */
-public class TipsRecyclerViewAdapter extends RecyclerView.Adapter<TipsRecyclerViewAdapter.ViewHolder> {
+public class TipsAdapter extends RecyclerView.Adapter<TipsAdapter.ViewHolder> {
 
     private final List<String> mValues;
     private final OnListFragmentInteractionListener mListener;
 
-    public TipsRecyclerViewAdapter(List<String> items, OnListFragmentInteractionListener listener) {
+    public TipsAdapter(List<String> items, OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }

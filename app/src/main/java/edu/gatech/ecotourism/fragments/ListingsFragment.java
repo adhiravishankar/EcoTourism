@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import edu.gatech.ecotourism.Listing;
 import edu.gatech.ecotourism.R;
-import edu.gatech.ecotourism.adapters.ListingsRecyclerViewAdapter;
+import edu.gatech.ecotourism.adapters.ListingsAdapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -61,7 +61,7 @@ public class ListingsFragment extends Fragment {
         Context context = view.getContext();
         RecyclerView recyclerView = view.findViewById(R.id.list);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
-        recyclerView.setAdapter(new ListingsRecyclerViewAdapter(listings, mListener));
+        recyclerView.setAdapter(new ListingsAdapter(listings, mListener));
         return view;
     }
 

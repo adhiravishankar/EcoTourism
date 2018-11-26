@@ -143,7 +143,11 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public void onListFragmentInteraction(Listing item) {
+        if (item.getType().contentEquals(getString(R.string.experience))) {
 
+        } else if (item.getType().contentEquals(getString(R.string.house))) {
+            
+        }
     }
 
     @Override
