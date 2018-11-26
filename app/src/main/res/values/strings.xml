@@ -116,4 +116,6 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="title_activity_house">HouseActivity</string>
+    <string name="check_availability">Check Availability</string>
+    <string name="description">Description</string>
 </resources>
