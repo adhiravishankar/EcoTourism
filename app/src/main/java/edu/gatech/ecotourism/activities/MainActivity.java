@@ -1,7 +1,6 @@
-package edu.gatech.ecotourism;
+package edu.gatech.ecotourism.activities;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -26,18 +25,22 @@ import java.util.List;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import edu.gatech.ecotourism.Contact;
+import edu.gatech.ecotourism.Listing;
+import edu.gatech.ecotourism.R;
 import edu.gatech.ecotourism.fragments.ContactsFragment;
 import edu.gatech.ecotourism.fragments.ListingsFragment;
 import edu.gatech.ecotourism.fragments.ShareMediaFragment;
 import edu.gatech.ecotourism.fragments.TipsFragment;
 
 public class MainActivity extends AppCompatActivity implements
-        ListingsFragment.OnListFragmentInteractionListener,
-        ContactsFragment.OnListFragmentInteractionListener,
+        ListingsFragment.OnListingsFragmentInteractionListener,
+        ContactsFragment.OnContactsFragmentInteractionListener,
         ShareMediaFragment.OnFragmentInteractionListener,
         TipsFragment.OnListFragmentInteractionListener {
 
     private static final int REQUEST_CODE_CHOOSE = 9001;
+    Listing listing;
     Toolbar toolbar;
 
     @Override
@@ -137,17 +140,20 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void onListFragmentInteraction(Contact item) {
+    public void onContactsFragmentInteraction(Contact item) {
 
     }
 
     @Override
-    public void onListFragmentInteraction(Listing item) {
-        if (item.getType().contentEquals(getString(R.string.experience))) {
-
-        } else if (item.getType().contentEquals(getString(R.string.house))) {
-            
+    public void onListingsFragmentInteraction(Listing item) {
+        Intent intent;
+        if (item.getType().contentEquals(getString(R.string.house))) {
+            intent = new Intent(this, HouseActivity.class);
+        } else {
+            intent = new Intent(this, ExperienceActivity.class);
         }
+        intent.putExtra("listing", item);
+        startActivity(intent);
     }
 
     @Override

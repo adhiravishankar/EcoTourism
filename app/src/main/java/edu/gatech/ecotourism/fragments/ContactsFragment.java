@@ -3,6 +3,7 @@ package edu.gatech.ecotourism.fragments;
 import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,12 +24,12 @@ import java.util.Random;
 /**
  * A fragment representing a list of Items.
  * <p/>
- * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
+ * Activities containing this fragment MUST implement the {@link OnContactsFragmentInteractionListener}
  * interface.
  */
 public class ContactsFragment extends Fragment {
 
-    private OnListFragmentInteractionListener mListener;
+    private OnContactsFragmentInteractionListener mListener;
     private List<Contact> contactList;
 
     /**
@@ -38,8 +39,6 @@ public class ContactsFragment extends Fragment {
     public ContactsFragment() {
     }
 
-    // TODO: Customize parameter initialization
-    @SuppressWarnings("unused")
     public static ContactsFragment newInstance() {
         return new ContactsFragment();
     }
@@ -50,7 +49,7 @@ public class ContactsFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_contacts_list, container, false);
 
@@ -68,11 +67,11 @@ public class ContactsFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnListFragmentInteractionListener) {
-            mListener = (OnListFragmentInteractionListener) context;
+        if (context instanceof OnContactsFragmentInteractionListener) {
+            mListener = (OnContactsFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
-                    + " must implement OnListFragmentInteractionListener");
+                    + " must implement OnListingsFragmentInteractionListener");
         }
 
         contactList = new ArrayList<>();
@@ -103,7 +102,7 @@ public class ContactsFragment extends Fragment {
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
-    public interface OnListFragmentInteractionListener {
-        void onListFragmentInteraction(Contact item);
+    public interface OnContactsFragmentInteractionListener {
+        void onContactsFragmentInteraction(Contact item);
     }
 }

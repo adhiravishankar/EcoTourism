@@ -10,21 +10,22 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import edu.gatech.ecotourism.Listing;
-import edu.gatech.ecotourism.fragments.ListingsFragment.OnListFragmentInteractionListener;
+import edu.gatech.ecotourism.fragments.ListingsFragment;
+import edu.gatech.ecotourism.fragments.ListingsFragment.OnListingsFragmentInteractionListener;
 import edu.gatech.ecotourism.R;
 
 import java.util.List;
 
 /**
  * {@link RecyclerView.Adapter} that can display a {@link Listing} and makes a call to the
- * specified {@link OnListFragmentInteractionListener}.
+ * specified {@link OnListingsFragmentInteractionListener}.
  */
 public class ListingsAdapter extends RecyclerView.Adapter<ListingsAdapter.ViewHolder> {
 
     private final List<Listing> mValues;
-    private final OnListFragmentInteractionListener mListener;
+    private final ListingsFragment.OnListingsFragmentInteractionListener mListener;
 
-    public ListingsAdapter(List<Listing> items, OnListFragmentInteractionListener listener) {
+    public ListingsAdapter(List<Listing> items, OnListingsFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -50,7 +51,7 @@ public class ListingsAdapter extends RecyclerView.Adapter<ListingsAdapter.ViewHo
                 if (null != mListener) {
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
-                    mListener.onListFragmentInteraction(holder.mItem);
+                    mListener.onListingsFragmentInteraction(holder.mItem);
                 }
             }
         });

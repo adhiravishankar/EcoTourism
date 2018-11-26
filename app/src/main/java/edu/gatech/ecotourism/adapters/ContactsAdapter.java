@@ -10,21 +10,21 @@ import android.widget.TextView;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import edu.gatech.ecotourism.Contact;
-import edu.gatech.ecotourism.fragments.ContactsFragment.OnListFragmentInteractionListener;
+import edu.gatech.ecotourism.fragments.ContactsFragment.OnContactsFragmentInteractionListener;
 import edu.gatech.ecotourism.R;
 
 import java.util.List;
 
 /**
  * {@link RecyclerView.Adapter} that can display a {@link Contact} and makes a call to the
- * specified {@link OnListFragmentInteractionListener}.
+ * specified {@link OnContactsFragmentInteractionListener}.
  */
 public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHolder> {
 
     private final List<Contact> mValues;
-    private final OnListFragmentInteractionListener mListener;
+    private final OnContactsFragmentInteractionListener mListener;
 
-    public ContactsAdapter(List<Contact> items, OnListFragmentInteractionListener listener) {
+    public ContactsAdapter(List<Contact> items, OnContactsFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -51,7 +51,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
                 if (null != mListener) {
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
-                    mListener.onListFragmentInteraction(holder.mItem);
+                    mListener.onContactsFragmentInteraction(holder.mItem);
                 }
             }
         });

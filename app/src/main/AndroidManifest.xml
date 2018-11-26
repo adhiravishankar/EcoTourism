@@ -13,9 +13,9 @@
         android:theme="@style/MaterialDrawerTheme.Light.DarkToolbar"
         android:name=".EcoTourism"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".MainActivity" />
+        <activity android:name=".activities.MainActivity" />
         <activity
-            android:name=".LauncherActivity"
+            android:name=".activities.LauncherActivity"
             android:label="@string/title_activity_launcher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,10 +24,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ExperienceActivity"
+            android:name=".activities.ExperienceActivity"
             android:label="@string/title_activity_experience" />
         <activity
-            android:name=".HouseActivity"
+            android:name=".activities.HouseActivity"
             android:label="@string/title_activity_house"></activity>
     </application>
 

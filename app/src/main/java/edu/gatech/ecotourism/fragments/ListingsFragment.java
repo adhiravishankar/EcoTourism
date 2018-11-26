@@ -24,12 +24,12 @@ import java.util.List;
 /**
  * A fragment representing a list of Items.
  * <p/>
- * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
+ * Activities containing this fragment MUST implement the {@link OnListingsFragmentInteractionListener}
  * interface.
  */
 public class ListingsFragment extends Fragment {
 
-    private OnListFragmentInteractionListener mListener;
+    private OnListingsFragmentInteractionListener mListener;
     private List<Listing> listings;
 
     /**
@@ -69,11 +69,11 @@ public class ListingsFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnListFragmentInteractionListener) {
-            mListener = (OnListFragmentInteractionListener) context;
+        if (context instanceof OnListingsFragmentInteractionListener) {
+            mListener = (OnListingsFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
-                    + " must implement OnListFragmentInteractionListener");
+                    + " must implement OnListingsFragmentInteractionListener");
         }
     }
 
@@ -93,7 +93,7 @@ public class ListingsFragment extends Fragment {
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
-    public interface OnListFragmentInteractionListener {
-        void onListFragmentInteraction(Listing item);
+    public interface OnListingsFragmentInteractionListener {
+        void onListingsFragmentInteraction(Listing item);
     }
 }
