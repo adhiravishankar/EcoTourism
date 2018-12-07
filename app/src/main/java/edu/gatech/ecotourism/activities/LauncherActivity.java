@@ -22,7 +22,7 @@ public class LauncherActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launcher);
-
+        /**
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user == null) {
             List<AuthUI.IdpConfig> providers = Arrays.asList(
@@ -34,7 +34,8 @@ public class LauncherActivity extends Activity {
             startActivityForResult(AuthUI.getInstance().createSignInIntentBuilder()
                             .setAvailableProviders(providers).build(), RC_SIGN_IN);
         } else
-            startActivity(new Intent(this, MainActivity.class));
+         **/
+        startActivity(new Intent(this, MainActivity.class));
     }
 
     @Override

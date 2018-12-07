@@ -15,6 +15,16 @@
         android:minHeight="200dp"
         android:text="@string/choose_photo"
         android:textAlignment="center" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        app:hintEnabled="true">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Caption" />
+    </com.google.android.material.textfield.TextInputLayout>
     <View
         android:layout_marginTop="12dp"
         android:layout_height="1dp"

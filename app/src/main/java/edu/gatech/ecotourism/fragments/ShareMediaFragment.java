@@ -3,11 +3,8 @@ package edu.gatech.ecotourism.fragments;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,11 +18,6 @@ import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
 import com.zhihu.matisse.Matisse;
 import com.zhihu.matisse.MimeType;
-import com.zhihu.matisse.engine.impl.GlideEngine;
-import com.zhihu.matisse.engine.impl.PicassoEngine;
-import com.zhihu.matisse.filter.Filter;
-
-import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -101,10 +93,8 @@ public class ShareMediaFragment extends Fragment implements PermissionListener {
                     + " must implement OnFragmentInteractionListener");
         }
 
-        Dexter.withActivity((Activity) context)
-                .withPermission(Manifest.permission.CAMERA)
-                .withListener(this)
-                .check();
+        Dexter.withActivity((Activity) context).withPermission(Manifest.permission.CAMERA)
+                .withListener(this).check();
     }
 
     @Override
